@@ -1,8 +1,8 @@
 public class BowlingGame {
 
-    private int score;
+    private int score=0;
 
-    public int score() {
+    public int getScore() {
         return score;
     }
 
