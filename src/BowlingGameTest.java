@@ -10,14 +10,14 @@ public class BowlingGameTest {
     @Test
     public void queDesGoutieresDonne0Points() {
         rollMany(20, 0);
-        assertEquals(0, game.getScore());
+        assertEquals(0, game.score());
     }
 
     @Test
     public void uneSeuleQuille(){
         game.roll(1);
         rollMany(19, 0);
-        assertEquals(1, game.getScore());
+        assertEquals(1, game.score());
     }
 
     @Test
@@ -26,8 +26,21 @@ public class BowlingGameTest {
         game.roll(2);
         game.roll(1);
         rollMany(17, 0);
-        assertEquals(12, game.getScore());
+        assertEquals(12, game.score());
     }
+    
+    @Test
+    public void bonusDuStrike() {
+    	game.roll(10);
+    	game.roll(0);
+    	game.roll(8);
+    	game.roll(1);
+    	rollMany(16, 0);
+        assertEquals(28, game.score());
+    	
+    }
+    
+    
 
     private void rollMany(int numberRolls, int numberPins) {
         for (int i = 0; i < numberRolls; i++) {
