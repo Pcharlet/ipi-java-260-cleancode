@@ -40,6 +40,18 @@ public class BowlingGameTest {
     	
     }
     
+    @Test
+    public void spareStrike() {
+    	game.roll(8);
+    	game.roll(2);
+    	game.roll(10);
+    	game.roll(0);
+    	game.roll(1);
+    	game.roll(1);
+    	rollMany(14,0);
+    	assertEquals(34,game.score());
+    }
+    
     
 
     private void rollMany(int numberRolls, int numberPins) {
